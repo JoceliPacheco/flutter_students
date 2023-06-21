@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_students/src/core/app_controller.dart';
 import 'package:flutter_students/src/modules/home/home_controller.dart';
+import 'package:flutter_students/src/shared/models/domain/student.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../shared/components/app_bar/button_language.dart';
+import '../../shared/components/fetch_list/fetch_list.dart';
 import '../../shared/components/layout/layout_page.dart';
-import '../../shared/style/texts/text_center.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({super.key});
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -19,6 +20,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final AppController appController = Modular.get();
+
   final HomeController controller = Modular.get();
 
   @override
@@ -36,10 +38,10 @@ class _HomePageState extends State<HomePage> {
           ButtonLanguage('en', onClick: appController.setLang),
           ButtonLanguage('es', onClick: appController.setLang),
         ],
-        body: Center(
-          child: Text(
-            AppLocalizations.of(context)!.lang,
-            style: textCenter,
+        body: Observer(
+          builder: (context) => FetchList<Student>(
+            cardList: _card,
+            list: controller.list,
           ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
@@ -49,5 +51,9 @@ class _HomePageState extends State<HomePage> {
             FontAwesomeIcons.userPlus,
           ),
         ));
+  }
+
+  Widget _card(Student st) {
+    return Text(st.name);
   }
 }

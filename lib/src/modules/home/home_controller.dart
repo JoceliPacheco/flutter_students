@@ -13,20 +13,6 @@ abstract class HomeControllerBase with Store {
   List<Student> list = [];
 
   init() {
-    /*    
-      repository.upInsert(
-        Student(
-            id: '2',
-            name: 'joceli',
-            email: 'email',
-            password: 'password',
-            active: true,
-            phone: 'phone',
-            value: 2.55,
-            observation: 'observation'),
-      ); 
-    */
-
     fetchStudents();
   }
 
