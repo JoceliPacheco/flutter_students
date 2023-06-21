@@ -18,4 +18,14 @@ class DatabaseService {
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
   }
+
+  Future<int> delete(String id, String table) async {
+    final db = await database.database.future;
+    return db.delete(table, where: 'id = ?', whereArgs: [id]);
+  }
+
+  Future<List<Map>> list(String table) async {
+    var db = await database.database.future;
+    return db.query(table);
+  }
 }
