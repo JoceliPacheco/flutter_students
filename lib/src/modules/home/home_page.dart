@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_students/src/core/app_controller.dart';
 import 'package:flutter_students/src/modules/home/home_controller.dart';
@@ -38,15 +37,13 @@ class _HomePageState extends State<HomePage> {
           ButtonLanguage('en', onClick: appController.setLang),
           ButtonLanguage('es', onClick: appController.setLang),
         ],
-        body: Observer(
-          builder: (context) => FetchList<Student>(
-            cardList: _card,
-            list: controller.list,
-          ),
+        body: FetchList<Student>(
+          cardList: _card,
+          fetchStore: controller.students,
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: FloatingActionButton(
-          onPressed: () => {},
+          onPressed: () => controller.init(),
           child: const Icon(
             FontAwesomeIcons.userPlus,
           ),

@@ -25,10 +25,27 @@ mixin _$HomeController on HomeControllerBase, Store {
     });
   }
 
+  late final _$isFetchingAtom =
+      Atom(name: 'HomeControllerBase.isFetching', context: context);
+
+  @override
+  bool get isFetching {
+    _$isFetchingAtom.reportRead();
+    return super.isFetching;
+  }
+
+  @override
+  set isFetching(bool value) {
+    _$isFetchingAtom.reportWrite(value, super.isFetching, () {
+      super.isFetching = value;
+    });
+  }
+
   @override
   String toString() {
     return '''
-list: ${list}
+list: ${list},
+isFetching: ${isFetching}
     ''';
   }
 }
