@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
 ThemeData themeData = ThemeData(
-  colorScheme: ColorScheme.fromSwatch().copyWith(
-    background: Colors.blueGrey,
+  //Page
+  scaffoldBackgroundColor: Colors.blueGrey,
+
+  //Butons
+  floatingActionButtonTheme: FloatingActionButtonThemeData(
+    backgroundColor: Colors.blueGrey[800],
   ),
 );

@@ -31,10 +31,8 @@ class HomePage extends StatelessWidget {
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: FloatingActionButton(
           onPressed: () => {},
-          backgroundColor: Colors.blueGrey[800],
           child: Icon(
             FontAwesomeIcons.userPlus,
-            color: Colors.blueGrey[200],
           ),
         ));
   }
