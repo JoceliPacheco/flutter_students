@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
 import '../../style/texts/text_center.dart';
+import '../../style/theme/theme_data.dart';
 import 'fetch_store.dart';
 
 class FetchList<T> extends StatelessWidget {
   final FetchStore<List<T>> fetchStore;
-  final Function cardList;
+  final Function itemBuilder;
 
   const FetchList({
     required this.fetchStore,
-    required this.cardList,
+    required this.itemBuilder,
     super.key,
   });
 
@@ -37,7 +38,7 @@ class FetchList<T> extends StatelessWidget {
         return ListView.builder(
           itemCount: fetchStore.data.length,
           itemBuilder: (context, index) {
-            return cardList(fetchStore.data[index]);
+            return itemBuilder(fetchStore.data[index]);
           },
         );
       },

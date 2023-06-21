@@ -26,4 +26,9 @@ abstract class HomeControllerBase with Store {
   fetchStudents() async {
     students.fetch(repository.list());
   }
+
+  Future<void> onRefresh() async {
+    print('onRefresh');
+    fetchStudents();
+  }
 }

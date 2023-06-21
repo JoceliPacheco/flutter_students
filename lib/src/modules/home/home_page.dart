@@ -38,20 +38,20 @@ class _HomePageState extends State<HomePage> {
           ButtonLanguage('en', onClick: appController.setLang),
           ButtonLanguage('es', onClick: appController.setLang),
         ],
-        body: FetchList<Student>(
-          cardList: _card,
-          fetchStore: controller.students,
+        body: RefreshIndicator(
+          onRefresh: () => controller.onRefresh(),
+          color: Theme.of(context).primaryColor,
+          child: FetchList<Student>(
+            itemBuilder: (_) => CardStudent(_),
+            fetchStore: controller.students,
+          ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: FloatingActionButton(
-          onPressed: () => controller.init(),
+          onPressed: () => controller.init(), //TODO: temporario
           child: const Icon(
             FontAwesomeIcons.userPlus,
           ),
         ));
-  }
-
-  Widget _card(Student student) {
-    return CardStudent(student: student);
   }
 }

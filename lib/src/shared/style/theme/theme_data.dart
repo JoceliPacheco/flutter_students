@@ -8,4 +8,7 @@ ThemeData themeData = ThemeData(
   floatingActionButtonTheme: FloatingActionButtonThemeData(
     backgroundColor: Colors.blueGrey[800],
   ),
+
+  //Colors
+  primaryColor: Colors.blueGrey,
 );

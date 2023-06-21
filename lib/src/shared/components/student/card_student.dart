@@ -3,8 +3,8 @@ import 'package:flutter_students/src/shared/models/domain/student.dart';
 
 class CardStudent extends StatelessWidget {
   final Student student;
-  const CardStudent({
-    required this.student,
+  const CardStudent(
+    this.student, {
     super.key,
   });
 
