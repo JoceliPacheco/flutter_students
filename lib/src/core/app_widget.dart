@@ -5,6 +5,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import '../shared/style/theme/theme_data.dart';
 import 'app_controller.dart';
 
 class AppWidget extends StatelessWidget {
@@ -32,7 +33,7 @@ class AppWidget extends StatelessWidget {
   Widget _buildApp(BuildContext context, AppController controller) {
     return MaterialApp.router(
       title: 'Flutter books',
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: themeData,
       routeInformationParser: Modular.routeInformationParser,
       routerDelegate: Modular.routerDelegate,
       localizationsDelegates: const [
