@@ -31,7 +31,7 @@ class HomePage extends StatelessWidget {
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: FloatingActionButton(
           onPressed: () => {},
-          child: Icon(
+          child: const Icon(
             FontAwesomeIcons.userPlus,
           ),
         ));
