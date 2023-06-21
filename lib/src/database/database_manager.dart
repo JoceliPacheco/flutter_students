@@ -8,17 +8,17 @@ import 'package:path/path.dart';
 
 import '../helpers/transformers.dart';
 import 'interfaces/base_table.dart';
-import 'tables/favorite_table.dart';
+import 'tables/student_table.dart';
 
 class DatabaseManager {
-  static const int schemaVersion = 3;
+  static const int schemaVersion = 5;
 
   static final DatabaseManager _instance = DatabaseManager._internal();
 
   factory DatabaseManager() => _instance;
 
   List<BaseTable> tables = [
-    FavoriteTable(),
+    StudentTable(),
   ];
 
   Completer<Database> database = Completer<Database>();

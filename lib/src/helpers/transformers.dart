@@ -21,3 +21,7 @@ String dynamicToString(dynamic source) {
   }
   return '';
 }
+
+double dynamicToDouble(dynamic source) {
+  return double.parse(source.toString());
+}
