@@ -7,14 +7,14 @@ part of 'student.dart';
 // **************************************************************************
 
 Student _$StudentFromJson(Map<String, dynamic> json) => Student(
-      id: json['id'] as String,
+      id: json['id'] as String?,
       name: json['nome'] as String,
       email: json['email'] as String,
       password: json['senha'] as String,
       active: dynamicToBool(json['situacao']),
-      phone: json['telefone'] as String,
+      phone: json['telefone'] as String?,
       value: dynamicToDouble(json['valor_mensalidade']),
-      observation: json['observacao'] as String,
+      observation: json['observacao'] as String?,
     );
 
 Map<String, dynamic> _$StudentToJson(Student instance) => <String, dynamic>{

@@ -6,7 +6,7 @@ import '../../../database/database_manager.dart';
 class DatabaseService {
   DatabaseManager database = Modular.get();
 
-  Future<int> create(
+  Future<int> upInsert(
     Map<String, Object?> item,
     String table,
   ) async {

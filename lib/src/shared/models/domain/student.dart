@@ -6,7 +6,7 @@ part 'student.g.dart';
 @JsonSerializable(createToJson: true)
 class Student {
   @JsonKey(name: 'id')
-  String id;
+  String? id;
 
   @JsonKey(name: 'nome')
   String name;
@@ -21,23 +21,23 @@ class Student {
   bool active;
 
   @JsonKey(name: 'telefone')
-  String phone;
+  String? phone;
 
   @JsonKey(name: 'valor_mensalidade', fromJson: dynamicToDouble)
-  double value;
+  double? value;
 
   @JsonKey(name: 'observacao')
-  String observation;
+  String? observation;
 
   Student({
-    required this.id,
+    this.id,
     required this.name,
     required this.email,
     required this.password,
     required this.active,
-    required this.phone,
-    required this.value,
-    required this.observation,
+    this.phone,
+    this.value,
+    this.observation,
   });
 
   static List<Student> fromList(List<dynamic> list) {

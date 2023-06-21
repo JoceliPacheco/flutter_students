@@ -7,8 +7,8 @@ class StudentRepository {
 
   String tableName = 'aluno';
 
-  Future<bool> create(Student student) async {
-    int result = await databaseService.create(
+  Future<bool> upInsert(Student student) async {
+    int result = await databaseService.upInsert(
       student.toJson(),
       tableName,
     );
