@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_students/src/core/app_controller.dart';
 import 'package:flutter_students/src/modules/home/home_controller.dart';
+import 'package:flutter_students/src/shared/components/student/card_student.dart';
 import 'package:flutter_students/src/shared/models/domain/student.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -50,7 +51,7 @@ class _HomePageState extends State<HomePage> {
         ));
   }
 
-  Widget _card(Student st) {
-    return Text(st.name);
+  Widget _card(Student student) {
+    return CardStudent(student: student);
   }
 }
