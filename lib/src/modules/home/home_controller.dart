@@ -28,7 +28,6 @@ abstract class HomeControllerBase with Store {
   }
 
   Future<void> onRefresh() async {
-    print('onRefresh');
     fetchStudents();
   }
 }

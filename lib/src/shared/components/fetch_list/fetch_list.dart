@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
 import '../../style/texts/text_center.dart';
-import '../../style/theme/theme_data.dart';
 import 'fetch_store.dart';
 
 class FetchList<T> extends StatelessWidget {
