@@ -30,4 +30,8 @@ abstract class HomeControllerBase with Store {
   Future<void> onRefresh() async {
     fetchStudents();
   }
+
+  void goRegister() {
+    Modular.to.pushNamed('/register');
+  }
 }
