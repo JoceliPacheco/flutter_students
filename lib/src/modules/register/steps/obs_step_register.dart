@@ -4,17 +4,17 @@ import 'package:flutter_students/src/modules/register/form/input_text_register.d
 
 import '../form/form_page_register.dart';
 
-class NameStepRegister extends StatelessWidget {
-  const NameStepRegister({super.key});
+class ObsStepRegister extends StatelessWidget {
+  const ObsStepRegister({super.key});
 
   @override
   Widget build(BuildContext context) {
     return FormPageRegister(
-      backLabel: 'Cancelar',
-      nextLabel: 'Avançar',
-      onSuccess: () => Modular.to.pushNamed('/register/email'),
+      backLabel: 'Voltar',
+      nextLabel: 'Finalizar',
+      onSuccess: () => Modular.to.pushNamedAndRemoveUntil('/', (p0) => false),
       child: const InputTextRegister(
-        label: 'Nome',
+        label: 'Observação',
       ),
     );
   }

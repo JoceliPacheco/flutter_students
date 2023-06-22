@@ -1,5 +1,9 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_students/src/modules/register/steps/email_step_register.dart';
+import 'package:flutter_students/src/modules/register/steps/obs_step_register.dart';
+import 'package:flutter_students/src/modules/register/steps/password_step_register.dart';
+import 'package:flutter_students/src/modules/register/steps/phone_step_register.dart';
+import 'package:flutter_students/src/modules/register/steps/value_step_register.dart';
 
 import '../../shared/repositories/student_repository.dart';
 import '../../shared/services/database/database_service.dart';
@@ -8,7 +12,7 @@ import 'register_controller.dart';
 import 'register_page.dart';
 
 class RegisterModule extends Module {
-  final TransitionType transitionType = TransitionType.rightToLeftWithFade;
+  final TransitionType transitionType = TransitionType.rightToLeft;
 
   @override
   List<Bind> get binds => [
@@ -22,11 +26,30 @@ class RegisterModule extends Module {
         ChildRoute(
           '/',
           child: (context, args) => const RegisterPage(),
-          transition: transitionType,
         ),
         ChildRoute(
           '/email',
           child: (context, args) => const EmailStepRegister(),
+          transition: transitionType,
+        ),
+        ChildRoute(
+          '/password',
+          child: (context, args) => const PasswordStepRegister(),
+          transition: transitionType,
+        ),
+        ChildRoute(
+          '/phone',
+          child: (context, args) => const PhoneStepRegister(),
+          transition: transitionType,
+        ),
+        ChildRoute(
+          '/value',
+          child: (context, args) => const ValueStepRegister(),
+          transition: transitionType,
+        ),
+        ChildRoute(
+          '/obs',
+          child: (context, args) => const ObsStepRegister(),
           transition: transitionType,
         ),
       ];

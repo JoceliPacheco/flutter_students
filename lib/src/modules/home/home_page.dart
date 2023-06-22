@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> {
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: FloatingActionButton(
-          onPressed: () => controller.goRegister(), //TODO: temporario
+          onPressed: () => controller.goRegister(),
           child: const Icon(
             FontAwesomeIcons.userPlus,
           ),

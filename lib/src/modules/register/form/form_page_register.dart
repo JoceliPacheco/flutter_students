@@ -1,13 +1,18 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_students/src/modules/register/steps/_step_register.dart';
+
+import '../../../shared/components/layout/layout_page.dart';
 
 class FormPageRegister extends StatelessWidget {
   final Widget child;
   final Function onSuccess;
+  final String backLabel;
+  final String nextLabel;
   FormPageRegister({
     required this.child,
     required this.onSuccess,
+    required this.backLabel,
+    required this.nextLabel,
     super.key,
   });
 
@@ -28,9 +33,18 @@ class FormPageRegister extends StatelessWidget {
   Widget build(BuildContext context) {
     return Form(
       key: formKey,
-      child: StepRegister(
-        onSuccess: () => validateAndSave(onSuccess),
-        child: child,
+      child: LayoutPage(
+        title: backLabel,
+        body: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Center(
+            child: child,
+          ),
+        ),
+        floatingActionButton: FloatingActionButton.extended(
+          onPressed: () => validateAndSave(() => onSuccess()),
+          label: Text(nextLabel),
+        ),
       ),
     );
   }
