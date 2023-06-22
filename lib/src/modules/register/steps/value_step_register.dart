@@ -1,3 +1,4 @@
+import 'package:extended_masked_text/extended_masked_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_students/src/modules/register/form/input_text_register.dart';
@@ -36,6 +37,7 @@ class ValueStepRegister extends StatelessWidget {
         value: controller.data.value.toString(),
         onChange: (v) => controller.setValue(v),
         onSubmit: (v) => validateAndSave(),
+        controller: MoneyMaskedTextController(leftSymbol: 'R\$ '),
       ),
     );
   }

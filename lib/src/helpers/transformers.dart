@@ -44,3 +44,13 @@ String formatCurrency(
   );
   return formatCurrency.format(amount);
 }
+
+double currencyToDouble(String value) {
+  value = value.replaceAll(' ', '');
+  value = value.replaceAll('R\$', '');
+  value = value.replaceAll('.', '');
+  value = value.replaceAll(',', '.');
+  value = value.replaceAll(' ', '');
+
+  return dynamicToDouble(value);
+}

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_students/src/modules/register/form/input_text_register.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 import '../form/form_page_register.dart';
 import '../register_controller.dart';
@@ -23,6 +24,9 @@ class PhoneStepRegister extends StatelessWidget {
     } else {}
   }
 
+  final maskFormatter = MaskTextInputFormatter(
+      mask: '(##) #####-####', filter: {"#": RegExp(r'[0-9]')});
+
   @override
   Widget build(BuildContext context) {
     return FormPageRegister(
@@ -36,6 +40,7 @@ class PhoneStepRegister extends StatelessWidget {
         value: controller.data.phone,
         onChange: (v) => controller.setPhone(v),
         onSubmit: (v) => validateAndSave(),
+        inputFormatters: [maskFormatter],
       ),
     );
   }

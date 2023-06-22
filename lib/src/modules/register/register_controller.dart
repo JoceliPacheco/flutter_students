@@ -41,7 +41,7 @@ abstract class RegisterControllerBase with Store {
 
   @action
   setValue(dynamic value) {
-    data.value = dynamicToDouble(value);
+    data.value = currencyToDouble(value);
   }
 
   @action

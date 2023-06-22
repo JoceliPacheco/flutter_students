@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../style/input_register_style.dart';
 
@@ -8,12 +9,16 @@ class InputTextRegister extends StatefulWidget {
   final Function? onChange;
   final Function? onSubmit;
   final String? value;
+  final List<TextInputFormatter> inputFormatters;
+  final TextEditingController? controller;
   const InputTextRegister({
     required this.label,
     this.value = '',
     this.onChange,
     this.onSubmit,
     this.secret = false,
+    this.inputFormatters = const [],
+    this.controller,
     super.key,
   });
 
@@ -22,19 +27,22 @@ class InputTextRegister extends StatefulWidget {
 }
 
 class _InputTextRegisterState extends State<InputTextRegister> {
-  final TextEditingController textEditingController = TextEditingController();
+  late TextEditingController controller =
+      widget.controller ?? TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    textEditingController.text = widget.value ?? '';
+
+    controller.text = widget.value ?? '';
   }
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      inputFormatters: widget.inputFormatters,
       textInputAction: TextInputAction.next,
-      controller: textEditingController,
+      controller: controller,
       onChanged: (value) {
         widget.onChange!(value);
       },
