@@ -4,8 +4,8 @@ import 'package:flutter_modular/flutter_modular.dart';
 import '../form/form_page_register.dart';
 import '../style/input_register_style.dart';
 
-class NameStep extends StatelessWidget {
-  const NameStep({super.key});
+class NameStepRegister extends StatelessWidget {
+  const NameStepRegister({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class NameStep extends StatelessWidget {
       onSuccess: () => Modular.to.pushNamed('/register/email'),
       child: TextFormField(
         cursorColor: Colors.white,
-        style: TextStyle(color: Colors.white),
+        style: const TextStyle(color: Colors.white),
         decoration: inputRegisterStyle('Nome'),
         validator: (String? value) =>
             value!.isEmpty ? 'Nome cannot be blank' : null,

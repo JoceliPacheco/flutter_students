@@ -1,7 +1,6 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_students/src/modules/register/steps/step_register.dart';
-
-import '../style/input_register_style.dart';
+import 'package:flutter_students/src/modules/register/steps/_step_register.dart';
 
 class FormPageRegister extends StatelessWidget {
   final Widget child;
@@ -19,7 +18,9 @@ class FormPageRegister extends StatelessWidget {
     if (form!.validate()) {
       onSuccess!();
     } else {
-      print('Invalid');
+      if (kDebugMode) {
+        print('Form Invalid');
+      }
     }
   }
 
@@ -28,7 +29,7 @@ class FormPageRegister extends StatelessWidget {
     return Form(
       key: formKey,
       child: StepRegister(
-        onSuccess: () => validateAndSave(this.onSuccess),
+        onSuccess: () => validateAndSave(onSuccess),
         child: child,
       ),
     );

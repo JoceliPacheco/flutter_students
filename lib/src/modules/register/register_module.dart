@@ -1,5 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_students/src/modules/register/steps/email_step.dart';
+import 'package:flutter_students/src/modules/register/steps/email_step_register.dart';
 
 import '../../shared/repositories/student_repository.dart';
 import '../../shared/services/database/database_service.dart';
@@ -19,10 +19,14 @@ class RegisterModule extends Module {
 
   @override
   List<ModularRoute> get routes => [
-        ChildRoute('/', child: (context, args) => RegisterPage()),
+        ChildRoute(
+          '/',
+          child: (context, args) => const RegisterPage(),
+          transition: transitionType,
+        ),
         ChildRoute(
           '/email',
-          child: (context, args) => EmailStep(),
+          child: (context, args) => const EmailStepRegister(),
           transition: transitionType,
         ),
       ];
