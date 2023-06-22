@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:form_builder_validators/form_builder_validators.dart';
 
 import '../form/form_page_register.dart';
 import '../form/input_text_register.dart';
@@ -36,6 +37,10 @@ class EmailStepRegister extends StatelessWidget {
         value: controller.data.email,
         onChange: (v) => controller.setEmail(v),
         onSubmit: (v) => validateAndSave(),
+        validators: FormBuilderValidators.compose([
+          FormBuilderValidators.required(errorText: 'Obrigatório'),
+          FormBuilderValidators.email(errorText: 'E=mail inválido'),
+        ]),
       ),
     );
   }

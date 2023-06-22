@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_students/src/modules/register/form/input_text_register.dart';
+import 'package:form_builder_validators/form_builder_validators.dart';
 
 import '../form/form_page_register.dart';
 import '../register_controller.dart';
@@ -36,6 +37,10 @@ class NameStepRegister extends StatelessWidget {
         value: controller.data.name,
         onChange: (v) => controller.setName(v),
         onSubmit: (v) => validateAndSave(),
+        validators: FormBuilderValidators.compose([
+          FormBuilderValidators.required(errorText: 'Obrigatório'),
+          FormBuilderValidators.minLength(5, errorText: 'Mínimo 5 caracteres'),
+        ]),
       ),
     );
   }

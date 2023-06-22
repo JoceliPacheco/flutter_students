@@ -2,6 +2,7 @@ import 'package:extended_masked_text/extended_masked_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_students/src/modules/register/form/input_text_register.dart';
+import 'package:form_builder_validators/form_builder_validators.dart';
 
 import '../form/form_page_register.dart';
 import '../register_controller.dart';
@@ -38,6 +39,10 @@ class ValueStepRegister extends StatelessWidget {
         onChange: (v) => controller.setValue(v),
         onSubmit: (v) => validateAndSave(),
         controller: MoneyMaskedTextController(leftSymbol: 'R\$ '),
+        validators: FormBuilderValidators.compose([
+          FormBuilderValidators.required(errorText: 'Obrigatório'),
+          FormBuilderValidators.notEqual('R\$ 0,00', errorText: 'Obrigatório'),
+        ]),
       ),
     );
   }

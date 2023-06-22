@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_students/src/modules/register/form/input_text_register.dart';
+import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 import '../form/form_page_register.dart';
@@ -41,6 +42,13 @@ class PhoneStepRegister extends StatelessWidget {
         onChange: (v) => controller.setPhone(v),
         onSubmit: (v) => validateAndSave(),
         inputFormatters: [maskFormatter],
+        validators: FormBuilderValidators.compose([
+          FormBuilderValidators.required(errorText: 'Obrigatório'),
+          FormBuilderValidators.minLength(
+            10,
+            errorText: 'Mínimo 10 caracteres',
+          ),
+        ]),
       ),
     );
   }

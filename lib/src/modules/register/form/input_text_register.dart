@@ -11,6 +11,7 @@ class InputTextRegister extends StatefulWidget {
   final String? value;
   final List<TextInputFormatter> inputFormatters;
   final TextEditingController? controller;
+  final String? Function(String?)? validators;
   const InputTextRegister({
     required this.label,
     this.value = '',
@@ -19,6 +20,7 @@ class InputTextRegister extends StatefulWidget {
     this.secret = false,
     this.inputFormatters = const [],
     this.controller,
+    this.validators,
     super.key,
   });
 
@@ -54,8 +56,7 @@ class _InputTextRegisterState extends State<InputTextRegister> {
       cursorColor: Colors.white,
       style: const TextStyle(color: Colors.white, fontSize: 24),
       decoration: inputRegisterStyle(widget.label),
-      validator: (String? value) =>
-          value!.isEmpty ? '${widget.label} required' : null,
+      validator: widget.validators,
     );
   }
 }
