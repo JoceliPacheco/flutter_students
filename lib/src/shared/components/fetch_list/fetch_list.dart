@@ -35,6 +35,7 @@ class FetchList<T> extends StatelessWidget {
           );
         }
         return ListView.builder(
+          padding: const EdgeInsets.only(bottom: 48),
           itemCount: fetchStore.data.length,
           itemBuilder: (context, index) {
             return itemBuilder(fetchStore.data[index]);
