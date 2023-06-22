@@ -8,6 +8,10 @@ class StudentRepository {
   String tableName = 'aluno';
 
   Future<bool> upInsert(Student student) async {
+    if (student.id!.isEmpty) {
+      student.id = handleId;
+    }
+
     int result = await databaseService.upInsertDB(
       student.toJson(),
       tableName,
@@ -25,4 +29,6 @@ class StudentRepository {
   Future<List<Student>> list() async {
     return databaseService.queryDB(tableName).then(Student.fromList);
   }
+
+  String get handleId => DateTime.now().microsecondsSinceEpoch.toString();
 }
