@@ -26,6 +26,6 @@ class DatabaseService {
 
   Future<List<Map>> queryDB(String table) async {
     var db = await database.database.future;
-    return db.query(table);
+    return db.query(table, orderBy: 'id desc');
   }
 }

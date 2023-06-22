@@ -11,6 +11,7 @@ class RegisterStudentToStudant {
       password: data.password ?? '',
       phone: data.phone,
       observation: data.observation,
+      value: data.value,
     );
   }
 }

@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 int dynamicToInt(source) {
   if (source.runtimeType == bool) {
     return source ? 1 : 0;
@@ -28,4 +30,17 @@ double dynamicToDouble(dynamic source) {
   } catch (e) {
     return 0;
   }
+}
+
+String formatCurrency(
+  double amount, {
+  int decimais = 2,
+  String prefix = 'R\$ ',
+}) {
+  final formatCurrency = NumberFormat.simpleCurrency(
+    locale: 'pt_BR',
+    name: prefix,
+    decimalDigits: decimais,
+  );
+  return formatCurrency.format(amount);
 }

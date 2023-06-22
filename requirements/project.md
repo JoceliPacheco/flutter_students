@@ -28,8 +28,4 @@
 
 * NOME, E-MAIL, TELEFONE, VALOR DA MENSALIDADE, SENHA, SITUAÇÃO (ATIVO OU INATIVO) E OBSERVAÇÃO.
 
-# Interessante
-* FIltro por ativos
-* Filtro por nome
-* Ordernar lista (nome, valor, id, data cadastro)
-* Scroll infinito
+ 

@@ -44,6 +44,16 @@ abstract class HomeControllerBase with Store {
     );
   }
 
+  void onDelete(Student student) async {
+    await repository.delete(student.id.toString());
+    fetchStudents();
+  }
+
+  void handleActive(Student student) async {
+    student.active = !student.active;
+    await repository.upInsert(student);
+  }
+
   void goEditRegister(Student student) {
     Modular.to.pushNamed(
       '/register',

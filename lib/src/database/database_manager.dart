@@ -11,7 +11,7 @@ import 'interfaces/base_table.dart';
 import 'tables/student_table.dart';
 
 class DatabaseManager {
-  static const int schemaVersion = 5;
+  static const int schemaVersion = 1;
 
   static final DatabaseManager _instance = DatabaseManager._internal();
 
@@ -36,7 +36,7 @@ class DatabaseManager {
 
   Future<Database> _initDatabase() async {
     return openDatabase(
-      join(await getDatabasesPath(), 'books.db'),
+      join(await getDatabasesPath(), 'students.db'),
       onCreate: _onCreate,
       onUpgrade: _onUpgrade,
       onDowngrade: _onUpgrade,

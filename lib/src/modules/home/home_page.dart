@@ -7,6 +7,7 @@ import 'package:flutter_students/src/shared/components/student/card_student.dart
 import 'package:flutter_students/src/shared/models/domain/student.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../../shared/components/alerts/confirm_alert.dart';
 import '../../shared/components/app_bar/button_language.dart';
 import '../../shared/components/fetch_list/fetch_list.dart';
 import '../../shared/components/layout/layout_page.dart';
@@ -45,6 +46,12 @@ class _HomePageState extends State<HomePage> {
             itemBuilder: (student) => CardStudent(
               student,
               onTap: controller.goEditRegister,
+              onDelete: (v) => confirmaAlert(
+                context,
+                onOk: () => controller.onDelete(student),
+                msg: 'Deseja realmente deletar este cadastro!',
+              ),
+              handleActive: controller.handleActive,
             ),
             fetchStore: controller.students,
           ),
