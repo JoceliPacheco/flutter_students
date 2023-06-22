@@ -10,16 +10,32 @@ class ValueStepRegister extends StatelessWidget {
 
   ValueStepRegister({super.key});
 
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
+  void onSuccess() {
+    Modular.to.pushNamed('/register/obs');
+  }
+
+  void validateAndSave() {
+    final FormState? form = formKey.currentState;
+    if (form!.validate()) {
+      onSuccess();
+    } else {}
+  }
+
   @override
   Widget build(BuildContext context) {
     return FormPageRegister(
+      formKey: formKey,
+      validateAndSave: validateAndSave,
       backLabel: 'Voltar',
       nextLabel: 'Avançar',
-      onSuccess: () => Modular.to.pushNamed('/register/obs'),
+      onSuccess: validateAndSave,
       child: InputTextRegister(
         label: 'Valor mensalidade',
         value: controller.data.value.toString(),
         onChange: (v) => controller.setValue(v),
+        onSubmit: (v) => validateAndSave(),
       ),
     );
   }

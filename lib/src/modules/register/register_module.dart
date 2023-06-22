@@ -13,8 +13,6 @@ import 'register_controller.dart';
 import 'register_page.dart';
 
 class RegisterModule extends Module {
-  final TransitionType transitionType = TransitionType.rightToLeft;
-
   @override
   List<Bind> get binds => [
         Bind((i) => RegisterController()),
@@ -34,27 +32,22 @@ class RegisterModule extends Module {
         ChildRoute(
           '/email',
           child: (context, args) => EmailStepRegister(),
-          transition: transitionType,
         ),
         ChildRoute(
           '/password',
           child: (context, args) => PasswordStepRegister(),
-          transition: transitionType,
         ),
         ChildRoute(
           '/phone',
           child: (context, args) => PhoneStepRegister(),
-          transition: transitionType,
         ),
         ChildRoute(
           '/value',
           child: (context, args) => ValueStepRegister(),
-          transition: transitionType,
         ),
         ChildRoute(
           '/obs',
           child: (context, args) => ObsStepRegister(),
-          transition: transitionType,
         ),
       ];
 }

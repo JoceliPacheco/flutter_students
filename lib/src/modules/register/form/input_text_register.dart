@@ -6,11 +6,13 @@ class InputTextRegister extends StatefulWidget {
   final String label;
   final bool secret;
   final Function? onChange;
+  final Function? onSubmit;
   final String? value;
   const InputTextRegister({
     required this.label,
     this.value = '',
     this.onChange,
+    this.onSubmit,
     this.secret = false,
     super.key,
   });
@@ -31,9 +33,13 @@ class _InputTextRegisterState extends State<InputTextRegister> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      textInputAction: TextInputAction.next,
       controller: textEditingController,
       onChanged: (value) {
         widget.onChange!(value);
+      },
+      onFieldSubmitted: (value) {
+        widget.onSubmit!(value);
       },
       autofocus: true,
       obscureText: widget.secret,

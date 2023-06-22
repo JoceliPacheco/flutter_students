@@ -10,16 +10,32 @@ class PhoneStepRegister extends StatelessWidget {
 
   PhoneStepRegister({super.key});
 
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
+  void onSuccess() {
+    Modular.to.pushNamed('/register/value');
+  }
+
+  void validateAndSave() {
+    final FormState? form = formKey.currentState;
+    if (form!.validate()) {
+      onSuccess();
+    } else {}
+  }
+
   @override
   Widget build(BuildContext context) {
     return FormPageRegister(
+      formKey: formKey,
+      validateAndSave: validateAndSave,
       backLabel: 'Voltar',
       nextLabel: 'Avançar',
-      onSuccess: () => Modular.to.pushNamed('/register/value'),
+      onSuccess: validateAndSave,
       child: InputTextRegister(
         label: 'Telefone',
         value: controller.data.phone,
         onChange: (v) => controller.setPhone(v),
+        onSubmit: (v) => validateAndSave(),
       ),
     );
   }

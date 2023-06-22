@@ -10,16 +10,32 @@ class NameStepRegister extends StatelessWidget {
 
   NameStepRegister({super.key});
 
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
+  void onSuccess() {
+    Modular.to.pushNamed('/register/email');
+  }
+
+  void validateAndSave() {
+    final FormState? form = formKey.currentState;
+    if (form!.validate()) {
+      onSuccess();
+    } else {}
+  }
+
   @override
   Widget build(BuildContext context) {
     return FormPageRegister(
+      formKey: formKey,
+      validateAndSave: validateAndSave,
       backLabel: 'Cancelar',
       nextLabel: 'Avançar',
-      onSuccess: () => Modular.to.pushNamed('/register/email'),
+      onSuccess: validateAndSave,
       child: InputTextRegister(
         label: 'Nome',
         value: controller.data.name,
         onChange: (v) => controller.setName(v),
+        onSubmit: (v) => validateAndSave(),
       ),
     );
   }

@@ -10,16 +10,32 @@ class EmailStepRegister extends StatelessWidget {
 
   EmailStepRegister({super.key});
 
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
+  void onSuccess() {
+    Modular.to.pushNamed('/register/password');
+  }
+
+  void validateAndSave() {
+    final FormState? form = formKey.currentState;
+    if (form!.validate()) {
+      onSuccess();
+    } else {}
+  }
+
   @override
   Widget build(BuildContext context) {
     return FormPageRegister(
+      formKey: formKey,
+      validateAndSave: validateAndSave,
       backLabel: 'Voltar',
       nextLabel: 'Avançar',
-      onSuccess: () => Modular.to.pushNamed('/register/password'),
+      onSuccess: validateAndSave,
       child: InputTextRegister(
         label: 'E-mail',
         value: controller.data.email,
         onChange: (v) => controller.setEmail(v),
+        onSubmit: (v) => validateAndSave(),
       ),
     );
   }

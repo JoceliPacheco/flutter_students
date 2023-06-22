@@ -10,17 +10,33 @@ class PasswordStepRegister extends StatelessWidget {
 
   PasswordStepRegister({super.key});
 
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
+  void onSuccess() {
+    Modular.to.pushNamed('/register/phone');
+  }
+
+  void validateAndSave() {
+    final FormState? form = formKey.currentState;
+    if (form!.validate()) {
+      onSuccess();
+    } else {}
+  }
+
   @override
   Widget build(BuildContext context) {
     return FormPageRegister(
+      formKey: formKey,
+      validateAndSave: validateAndSave,
       backLabel: 'Voltar',
       nextLabel: 'Avançar',
-      onSuccess: () => Modular.to.pushNamed('/register/phone'),
+      onSuccess: validateAndSave,
       child: InputTextRegister(
         secret: true,
         label: 'Senha',
         value: controller.data.password,
         onChange: (v) => controller.setPassword(v),
+        onSubmit: (v) => validateAndSave(),
       ),
     );
   }

@@ -10,16 +10,32 @@ class ObsStepRegister extends StatelessWidget {
 
   ObsStepRegister({super.key});
 
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
+  void onSuccess() {
+    controller.register();
+  }
+
+  void validateAndSave() {
+    final FormState? form = formKey.currentState;
+    if (form!.validate()) {
+      onSuccess();
+    } else {}
+  }
+
   @override
   Widget build(BuildContext context) {
     return FormPageRegister(
+      formKey: formKey,
+      validateAndSave: validateAndSave,
       backLabel: 'Voltar',
       nextLabel: 'Finalizar',
-      onSuccess: () => controller.register(),
+      onSuccess: validateAndSave,
       child: InputTextRegister(
         label: 'Observação',
         value: controller.data.observation,
         onChange: (v) => controller.setObs(v),
+        onSubmit: (v) => validateAndSave(),
       ),
     );
   }
