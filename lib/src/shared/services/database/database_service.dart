@@ -6,7 +6,7 @@ import '../../../database/database_manager.dart';
 class DatabaseService {
   DatabaseManager database = Modular.get();
 
-  Future<int> upInsert(
+  Future<int> upInsertDB(
     Map<String, Object?> item,
     String table,
   ) async {
@@ -19,12 +19,12 @@ class DatabaseService {
     );
   }
 
-  Future<int> delete(String id, String table) async {
+  Future<int> deleteDB(String id, String table) async {
     final db = await database.database.future;
     return db.delete(table, where: 'id = ?', whereArgs: [id]);
   }
 
-  Future<List<Map>> list(String table) async {
+  Future<List<Map>> queryDB(String table) async {
     var db = await database.database.future;
     return db.query(table);
   }

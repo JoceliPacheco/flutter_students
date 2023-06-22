@@ -8,7 +8,7 @@ class StudentRepository {
   String tableName = 'aluno';
 
   Future<bool> upInsert(Student student) async {
-    int result = await databaseService.upInsert(
+    int result = await databaseService.upInsertDB(
       student.toJson(),
       tableName,
     );
@@ -17,12 +17,12 @@ class StudentRepository {
   }
 
   Future<bool> delete(String id) async {
-    int result = await databaseService.delete(id, tableName);
+    int result = await databaseService.deleteDB(id, tableName);
 
     return result > 0;
   }
 
   Future<List<Student>> list() async {
-    return databaseService.list(tableName).then(Student.fromList);
+    return databaseService.queryDB(tableName).then(Student.fromList);
   }
 }
