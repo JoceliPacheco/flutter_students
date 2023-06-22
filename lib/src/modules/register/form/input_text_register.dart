@@ -44,7 +44,7 @@ class _InputTextRegisterState extends State<InputTextRegister> {
       autofocus: true,
       obscureText: widget.secret,
       cursorColor: Colors.white,
-      style: const TextStyle(color: Colors.white),
+      style: const TextStyle(color: Colors.white, fontSize: 24),
       decoration: inputRegisterStyle(widget.label),
       validator: (String? value) =>
           value!.isEmpty ? '${widget.label} required' : null,
