@@ -27,7 +27,9 @@ class RegisterModule extends Module {
   List<ModularRoute> get routes => [
         ChildRoute(
           '/',
-          child: (context, args) => const RegisterPage(),
+          child: (context, args) => RegisterPage(
+            data: args.data!['data'],
+          ),
         ),
         ChildRoute(
           '/email',

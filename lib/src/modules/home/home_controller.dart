@@ -3,7 +3,9 @@ import 'package:flutter_students/src/shared/models/domain/student.dart';
 import 'package:flutter_students/src/shared/repositories/student_repository.dart';
 import 'package:mobx/mobx.dart';
 
+import '../../shared/models/register_student.dart';
 import '../../shared/services/fetch_store/fetch_store.dart';
+import '../../shared/transformers/student_to_register_student.dart';
 part 'home_controller.g.dart';
 
 class HomeController = HomeControllerBase with _$HomeController;
@@ -32,8 +34,24 @@ abstract class HomeControllerBase with Store {
   }
 
   void goRegister() {
-    Modular.to.pushNamed('/register').then(
-          (value) => fetchStudents(),
-        );
+    Modular.to.pushNamed(
+      '/register',
+      arguments: {
+        'data': RegisterStudent(),
+      },
+    ).then(
+      (value) => fetchStudents(),
+    );
+  }
+
+  void goEditRegister(Student student) {
+    Modular.to.pushNamed(
+      '/register',
+      arguments: {
+        'data': StudentToRegisterStudent.transform(student),
+      },
+    ).then(
+      (value) => fetchStudents(),
+    );
   }
 }

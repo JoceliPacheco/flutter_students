@@ -10,8 +10,14 @@ class RegisterController = RegisterControllerBase with _$RegisterController;
 
 abstract class RegisterControllerBase with Store {
   final UpInsertStudentService upInsertStudentService = Modular.get();
+
   @observable
   RegisterStudent data = RegisterStudent();
+
+  @action
+  setData(RegisterStudent newData) {
+    data = newData;
+  }
 
   @action
   setName(dynamic value) {

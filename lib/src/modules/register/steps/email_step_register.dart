@@ -18,6 +18,7 @@ class EmailStepRegister extends StatelessWidget {
       onSuccess: () => Modular.to.pushNamed('/register/password'),
       child: InputTextRegister(
         label: 'E-mail',
+        value: controller.data.email,
         onChange: (v) => controller.setEmail(v),
       ),
     );

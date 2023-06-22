@@ -42,7 +42,10 @@ class _HomePageState extends State<HomePage> {
           onRefresh: () => controller.onRefresh(),
           color: Theme.of(context).primaryColor,
           child: FetchList<Student>(
-            itemBuilder: (_) => CardStudent(_),
+            itemBuilder: (student) => CardStudent(
+              student,
+              onTap: controller.goEditRegister,
+            ),
             fetchStore: controller.students,
           ),
         ),

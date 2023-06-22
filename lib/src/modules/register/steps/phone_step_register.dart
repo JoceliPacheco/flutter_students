@@ -18,6 +18,7 @@ class PhoneStepRegister extends StatelessWidget {
       onSuccess: () => Modular.to.pushNamed('/register/value'),
       child: InputTextRegister(
         label: 'Telefone',
+        value: controller.data.phone,
         onChange: (v) => controller.setPhone(v),
       ),
     );

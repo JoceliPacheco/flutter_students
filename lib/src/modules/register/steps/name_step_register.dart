@@ -18,6 +18,7 @@ class NameStepRegister extends StatelessWidget {
       onSuccess: () => Modular.to.pushNamed('/register/email'),
       child: InputTextRegister(
         label: 'Nome',
+        value: controller.data.name,
         onChange: (v) => controller.setName(v),
       ),
     );

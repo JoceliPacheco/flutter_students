@@ -18,6 +18,7 @@ class ValueStepRegister extends StatelessWidget {
       onSuccess: () => Modular.to.pushNamed('/register/obs'),
       child: InputTextRegister(
         label: 'Valor mensalidade',
+        value: controller.data.value.toString(),
         onChange: (v) => controller.setValue(v),
       ),
     );

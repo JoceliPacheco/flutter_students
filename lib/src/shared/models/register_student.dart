@@ -9,13 +9,13 @@ class RegisterStudent {
   String? observation;
 
   RegisterStudent({
-    this.id,
-    this.name,
-    this.email,
-    this.password,
-    this.active,
-    this.phone,
-    this.value,
-    this.observation,
+    this.id = '',
+    this.name = '',
+    this.email = '',
+    this.password = '',
+    this.active = true,
+    this.phone = '',
+    this.value = 0,
+    this.observation = '',
   });
 }

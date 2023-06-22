@@ -18,6 +18,7 @@ class ObsStepRegister extends StatelessWidget {
       onSuccess: () => controller.register(),
       child: InputTextRegister(
         label: 'Observação',
+        value: controller.data.observation,
         onChange: (v) => controller.setObs(v),
       ),
     );

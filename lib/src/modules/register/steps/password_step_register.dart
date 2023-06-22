@@ -19,6 +19,7 @@ class PasswordStepRegister extends StatelessWidget {
       child: InputTextRegister(
         secret: true,
         label: 'Senha',
+        value: controller.data.password,
         onChange: (v) => controller.setPassword(v),
       ),
     );
