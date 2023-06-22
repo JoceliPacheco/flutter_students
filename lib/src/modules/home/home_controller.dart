@@ -32,6 +32,8 @@ abstract class HomeControllerBase with Store {
   }
 
   void goRegister() {
-    Modular.to.pushNamed('/register');
+    Modular.to.pushNamed('/register').then(
+          (value) => fetchStudents(),
+        );
   }
 }

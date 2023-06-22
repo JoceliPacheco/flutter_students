@@ -3,9 +3,12 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_students/src/modules/register/form/input_text_register.dart';
 
 import '../form/form_page_register.dart';
+import '../register_controller.dart';
 
 class ValueStepRegister extends StatelessWidget {
-  const ValueStepRegister({super.key});
+  final RegisterController controller = Modular.get();
+
+  ValueStepRegister({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,8 +16,9 @@ class ValueStepRegister extends StatelessWidget {
       backLabel: 'Voltar',
       nextLabel: 'Avançar',
       onSuccess: () => Modular.to.pushNamed('/register/obs'),
-      child: const InputTextRegister(
+      child: InputTextRegister(
         label: 'Valor mensalidade',
+        onChange: (v) => controller.setValue(v),
       ),
     );
   }

@@ -29,11 +29,66 @@ mixin _$RegisterController on RegisterControllerBase, Store {
       ActionController(name: 'RegisterControllerBase', context: context);
 
   @override
-  dynamic setData(RegisterStudent newdata) {
+  dynamic setName(dynamic value) {
     final _$actionInfo = _$RegisterControllerBaseActionController.startAction(
-        name: 'RegisterControllerBase.setData');
+        name: 'RegisterControllerBase.setName');
     try {
-      return super.setData(newdata);
+      return super.setName(value);
+    } finally {
+      _$RegisterControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic setEmail(dynamic value) {
+    final _$actionInfo = _$RegisterControllerBaseActionController.startAction(
+        name: 'RegisterControllerBase.setEmail');
+    try {
+      return super.setEmail(value);
+    } finally {
+      _$RegisterControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic setPassword(dynamic value) {
+    final _$actionInfo = _$RegisterControllerBaseActionController.startAction(
+        name: 'RegisterControllerBase.setPassword');
+    try {
+      return super.setPassword(value);
+    } finally {
+      _$RegisterControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic setPhone(dynamic value) {
+    final _$actionInfo = _$RegisterControllerBaseActionController.startAction(
+        name: 'RegisterControllerBase.setPhone');
+    try {
+      return super.setPhone(value);
+    } finally {
+      _$RegisterControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic setValue(dynamic value) {
+    final _$actionInfo = _$RegisterControllerBaseActionController.startAction(
+        name: 'RegisterControllerBase.setValue');
+    try {
+      return super.setValue(value);
+    } finally {
+      _$RegisterControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic setObs(dynamic value) {
+    final _$actionInfo = _$RegisterControllerBaseActionController.startAction(
+        name: 'RegisterControllerBase.setObs');
+    try {
+      return super.setObs(value);
     } finally {
       _$RegisterControllerBaseActionController.endAction(_$actionInfo);
     }

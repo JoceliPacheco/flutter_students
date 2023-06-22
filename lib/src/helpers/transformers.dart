@@ -23,5 +23,9 @@ String dynamicToString(dynamic source) {
 }
 
 double dynamicToDouble(dynamic source) {
-  return double.parse(source.toString());
+  try {
+    return double.parse(source.toString());
+  } catch (e) {
+    return 0;
+  }
 }
