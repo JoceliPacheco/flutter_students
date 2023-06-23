@@ -1,0 +1,25 @@
+{
+    "lang": "Portugues",
+   
+    "name": "Nome",
+    "email": "E-mail",
+    "phone": "Telefone",
+    "value": "Valor da mensalidade",
+    "pass": "Senha",
+    "obs": "Observação",
+
+    "next": "Avançar",
+    "back": "Voltar",
+    "finish": "Finalizar",
+    "cancel": "Cancelar",
+
+    "required": "Obrigatório",
+    "minLength": "Mínimo de caracteres",
+    "invalid": "Inválido",
+    
+    "noError": "Erro inesperado",
+    "noResult": "Sem resultados",
+    "confirmDelete":"Deseja realmente deletar este cadastro?",
+    "confitmTitle": "Ação necessária",
+    "yes": "Sim"
+}
