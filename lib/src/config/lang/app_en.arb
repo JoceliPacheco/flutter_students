@@ -17,6 +17,7 @@
     "minLength": "Minimum length",
     "invalid": "Invalid",
 
+    "noError": "unexpected error",
     "noResult": "No results" ,
     "confirmDelete":"Do you really want to delete this record?" ,
     "confitmTitle": "Necessary action",

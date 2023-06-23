@@ -27,6 +27,15 @@ class FetchList<T> extends StatelessWidget {
           );
         }
 
+        if (fetchStore.errorMessage.isNotEmpty) {
+          return Center(
+            child: Text(
+              AppLocalizations.of(context)!.noError,
+              style: textCenter,
+            ),
+          );
+        }
+
         if (fetchStore.data.isEmpty) {
           return Center(
             child: Text(

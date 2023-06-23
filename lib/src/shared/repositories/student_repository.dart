@@ -33,7 +33,10 @@ class StudentRepository {
           tableName,
           query,
         )
-        .then(Student.fromList);
+        .then(Student.fromList)
+        .catchError((e) {
+      return throw new Exception('Erro');
+    });
   }
 
   String get handleId => DateTime.now().microsecondsSinceEpoch.toString();

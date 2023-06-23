@@ -16,7 +16,8 @@
     "required": "Obrigatório",
     "minLength": "Mínimo de caracteres",
     "invalid": "Inválido",
-
+    
+    "noError": "Erro inesperado",
     "noResult": "Sem resultados",
     "confirmDelete":"Deseja realmente deletar este cadastro?",
     "confitmTitle": "Ação necessária",

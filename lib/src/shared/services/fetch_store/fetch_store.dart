@@ -46,6 +46,7 @@ abstract class FetchStoreBase<T> with Store {
 
   @action
   _onSuccess(value) {
+    this.errorMessage = '';
     data = value;
     this.success = true;
     this.isFetching = false;
@@ -55,10 +56,6 @@ abstract class FetchStoreBase<T> with Store {
 
   @action
   _onError(error) {
-    if (kDebugMode) {
-      throw error;
-    }
-
     if (error is TypeError) {
       this.errorMessage = 'Falha na exibição dos dados,'
           ' se o problema persitir,'

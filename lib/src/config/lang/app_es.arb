@@ -17,6 +17,7 @@
     "minLength": "Longitud mínima",
     "invalid": "Inválido",
     
+    "noError": "error inesperado",
     "noResult": "Sin resultados"   ,
     "confirmDelete":"¿Realmente desea eliminar este registro?",
     "confitmTitle": "Acción necesaria",
