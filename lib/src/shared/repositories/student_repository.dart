@@ -35,7 +35,7 @@ class StudentRepository {
         )
         .then(Student.fromList)
         .catchError((e) {
-      return throw new Exception('Erro');
+      return throw Exception('Erro');
     });
   }
 
