@@ -3,7 +3,6 @@ import 'package:flutter_students/src/shared/models/query_builder.dart';
 import 'package:sqflite/sqflite.dart';
 
 import '../../../database/database_manager.dart';
-import '../../models/where_args.dart';
 
 class DatabaseService {
   DatabaseManager database = Modular.get();

@@ -38,9 +38,6 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return LayoutPage(
       title: '',
-      child: SearchInAppBar(
-        onSearch: controller.onSearch,
-      ),
       actions: [
         ButtonLanguage('pt', onClick: appController.setLang),
         ButtonLanguage('en', onClick: appController.setLang),
@@ -72,6 +69,9 @@ class _HomePageState extends State<HomePage> {
         child: const Icon(
           FontAwesomeIcons.userPlus,
         ),
+      ),
+      child: SearchInAppBar(
+        onSearch: controller.onSearch,
       ),
     );
   }
