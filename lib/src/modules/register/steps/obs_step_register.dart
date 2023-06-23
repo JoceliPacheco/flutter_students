@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_students/src/modules/register/form/input_text_register.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../form/form_page_register.dart';
 import '../register_controller.dart';
@@ -29,17 +30,19 @@ class ObsStepRegister extends StatelessWidget {
     return FormPageRegister(
       formKey: formKey,
       validateAndSave: validateAndSave,
-      backLabel: 'Voltar',
-      nextLabel: 'Finalizar',
+      backLabel: AppLocalizations.of(context)!.back,
+      nextLabel: AppLocalizations.of(context)!.finish,
       onSuccess: validateAndSave,
       child: InputTextRegister(
-        label: 'Observação',
+        label: AppLocalizations.of(context)!.obs,
         value: controller.data.observation,
         onChange: (v) => controller.setObs(v),
         onSubmit: (v) => validateAndSave(),
         validators: FormBuilderValidators.compose([
-          FormBuilderValidators.required(errorText: 'Obrigatório'),
-          FormBuilderValidators.minLength(5, errorText: 'Mínimo 5 caracteres'),
+          FormBuilderValidators.required(
+              errorText: AppLocalizations.of(context)!.required),
+          FormBuilderValidators.minLength(5,
+              errorText: '${AppLocalizations.of(context)!.minLength} | 5'),
         ]),
       ),
     );

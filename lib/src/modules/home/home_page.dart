@@ -6,6 +6,7 @@ import 'package:flutter_students/src/modules/home/home_controller.dart';
 import 'package:flutter_students/src/shared/components/student/card_student.dart';
 import 'package:flutter_students/src/shared/models/domain/student.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../shared/components/alerts/confirm_alert.dart';
 import '../../shared/components/app_bar/button_language.dart';
@@ -49,7 +50,7 @@ class _HomePageState extends State<HomePage> {
               onDelete: (v) => confirmaAlert(
                 context,
                 onOk: () => controller.onDelete(student),
-                msg: 'Deseja realmente deletar este cadastro!',
+                msg: AppLocalizations.of(context)!.confirmDelete,
               ),
               handleActive: controller.handleActive,
             ),

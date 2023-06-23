@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 confirmaAlert(
   BuildContext context, {
@@ -16,18 +17,18 @@ confirmaAlert(
     content: Text("$msg"),
     actions: [
       TextButton(
-        child: const Text(
-          "Cancelar",
-          style: TextStyle(
+        child: Text(
+          AppLocalizations.of(context)!.cancel,
+          style: const TextStyle(
             color: Colors.blueGrey,
           ),
         ),
         onPressed: () => Modular.to.pop(),
       ),
       TextButton(
-        child: const Text(
-          "Sim",
-          style: TextStyle(
+        child: Text(
+          AppLocalizations.of(context)!.yes,
+          style: const TextStyle(
             color: Colors.blueGrey,
           ),
         ),

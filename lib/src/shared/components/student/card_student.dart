@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_students/src/helpers/transformers.dart';
 import 'package:flutter_students/src/shared/models/domain/student.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../templates/simple_info_widget.dart';
 
@@ -62,14 +63,14 @@ class _CardStudentState extends State<CardStudent> {
                   Expanded(
                     flex: 2,
                     child: SimpleInfoWidget(
-                      title: 'Telefone',
+                      title: AppLocalizations.of(context)!.phone,
                       value: widget.student.phone,
                     ),
                   ),
                   Expanded(
                     flex: 2,
                     child: SimpleInfoWidget(
-                      title: 'Mensalidade',
+                      title: AppLocalizations.of(context)!.value,
                       value: formatCurrency(widget.student.value ?? 0),
                     ),
                   ),
@@ -79,7 +80,7 @@ class _CardStudentState extends State<CardStudent> {
             ListTile(
               dense: true,
               title: SimpleInfoWidget(
-                title: 'Observação',
+                title: AppLocalizations.of(context)!.obs,
                 value: widget.student.observation.toString(),
               ),
               trailing: IconButton(

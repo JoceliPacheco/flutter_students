@@ -1,3 +1,26 @@
 {
-    "lang":                 "English"
+    "lang": "English",
+   
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "value": "Subscription Value",
+    "pass": "Password",
+    "obs": "Observation",
+
+    "next": "Next",
+    "back": "Back",
+    "finish": "Finish",
+    "cancel": "Cancel",
+
+    "required": "Required",
+    "minLength": "Minimum length",
+    "invalid": "Invalid",
+
+    "noResult": "No results" ,
+    "confirmDelete":"Do you really want to delete this record?" ,
+    "confitmTitle": "Necessary action",
+    "yes": "Yes"
+
+
 }

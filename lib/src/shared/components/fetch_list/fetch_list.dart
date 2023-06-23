@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../style/texts/text_center.dart';
 import '../../services/fetch_store/fetch_store.dart';
@@ -29,7 +30,7 @@ class FetchList<T> extends StatelessWidget {
         if (fetchStore.data.isEmpty) {
           return Center(
             child: Text(
-              '#Nenhum resultado',
+              AppLocalizations.of(context)!.noResult,
               style: textCenter,
             ),
           );

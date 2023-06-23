@@ -1,3 +1,26 @@
 {
-    "lang":                 "Espanol"
+    "lang": "Espanol",
+   
+    "name": "Nombre",
+    "email": "Correo electrónico",
+    "phone": "Teléfono",
+    "value": "Valor de la mensualidad",
+    "pass": "Contraseña",
+    "obs": "Observación",
+    
+    "next": "Siguiente",
+    "back": "Volver",
+    "finish": "Finalizar",
+    "cancel": "Cancelar",
+    
+    "required": "Requerido",
+    "minLength": "Longitud mínima",
+    "invalid": "Inválido",
+    
+    "noResult": "Sin resultados"   ,
+    "confirmDelete":"¿Realmente desea eliminar este registro?",
+    "confitmTitle": "Acción necesaria",
+    "yes": "Si"
+
+
 }
