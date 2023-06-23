@@ -6,10 +6,12 @@ class LayoutPage extends StatelessWidget {
   final List<Widget> actions;
   final Widget? floatingActionButton;
   final FloatingActionButtonLocation? floatingActionButtonLocation;
+  final Widget? child;
 
   const LayoutPage({
     required this.title,
     required this.body,
+    this.child,
     this.actions = const [],
     this.floatingActionButton,
     this.floatingActionButtonLocation,
@@ -22,7 +24,7 @@ class LayoutPage extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
-        title: Text(title),
+        title: child ?? Text(title),
         actions: actions,
       ),
       body: body,

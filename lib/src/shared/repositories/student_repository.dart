@@ -1,5 +1,6 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_students/src/shared/models/domain/student.dart';
+import 'package:flutter_students/src/shared/models/query_builder.dart';
 import 'package:flutter_students/src/shared/services/database/database_service.dart';
 
 class StudentRepository {
@@ -26,8 +27,13 @@ class StudentRepository {
     return result > 0;
   }
 
-  Future<List<Student>> list() async {
-    return databaseService.queryDB(tableName).then(Student.fromList);
+  Future<List<Student>> list(QueryBuilder query) async {
+    return databaseService
+        .queryDB(
+          tableName,
+          query,
+        )
+        .then(Student.fromList);
   }
 
   String get handleId => DateTime.now().microsecondsSinceEpoch.toString();
